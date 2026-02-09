@@ -154,6 +154,12 @@ Para criar a virtualenv dentro do projeto:
 POETRY_VIRTUALENVS_IN_PROJECT=1 poetry install
 ```
 
+Se voce estiver usando um venv manual, desative antes (Poetry gerencia o ambiente):
+
+```bash
+deactivate
+```
+
 ## Uso
 
 Extracao principal:
@@ -188,6 +194,48 @@ python sftp_extractor.py
 python dataframe_efetividade_da_leitura.py
 python sftp_teste.py
 python sftp_teste_2.py
+```
+
+Wrapper do CLI sem instalacao do pacote (util para diagnostico local):
+
+```bash
+poetry run python enel_sftp.py extract
+```
+
+## Solucao de problemas (erros comuns)
+
+### ModuleNotFoundError: No module named 'extract_enel_sftp'
+
+Motivo: o pacote ainda nao foi instalado no ambiente do Poetry, ou voce esta em um diretorio diferente do repositorio.
+
+Passos:
+
+```bash
+poetry install
+poetry run enel-sftp extract
+```
+
+Se o aviso continuar, rode o wrapper:
+
+```bash
+poetry run python enel_sftp.py extract
+```
+
+### Warning: entry point not installed
+
+Motivo: `poetry install` nao foi executado (script nao instalado no ambiente).
+
+```bash
+poetry install
+```
+
+### Ambiente Python errado
+
+Garanta que o Poetry esta usando o Python correto:
+
+```bash
+poetry env use 3.12
+poetry run enel-sftp extract
 ```
 
 ## Configuracao por variaveis de ambiente
