@@ -100,6 +100,48 @@ extract-enel-sftp/
 - Chaves SSH OpenSSH sem senha (passphrase nao suportada no script)
 - ODBC Driver 18 for SQL Server
 
+## Instalacao do Poetry (passo a passo)
+
+1. Verifique se o Python esta instalado:
+
+```bash
+python --version
+```
+
+2. Instale o Poetry (recomendado pelo site oficial):
+
+Linux/macOS:
+
+```bash
+curl -sSL https://install.python-poetry.org | python3 -
+```
+
+Windows (PowerShell):
+
+```powershell
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+```
+
+3. Adicione o Poetry ao PATH (se necessario):
+
+Linux/macOS (bash/zsh):
+
+```bash
+export PATH="$HOME/.local/bin:$PATH"
+```
+
+Windows:
+
+```powershell
+$env:Path += ";$env:APPDATA\\Python\\Scripts"
+```
+
+4. Confirme a instalacao:
+
+```bash
+poetry --version
+```
+
 ## Instalacao (Poetry)
 
 ```bash
