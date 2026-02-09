@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "extract-enel-sftp"
+version = "0.1.0"
+description = "Extracao SFTP e processamento de dados ENEL"
+authors = ["MIS BI <dev@local>"]
+readme = "README.md"
+packages = [{ include = "extract_enel_sftp", from = "src" }]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+paramiko = "^4.0.0"
+pandas = "^2.2.0"
+openpyxl = "^3.1.5"
+sqlalchemy = "^2.0.0"
+pyodbc = "^5.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pandas-stubs = "^2.2.0.240218"
+
+[tool.poetry.scripts]
+enel-sftp = "extract_enel_sftp.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"
